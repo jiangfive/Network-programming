@@ -1,0 +1,30 @@
+docker run --rm -it ubuntu:18.04
+
+--rm - to close image (ubuntu:18.04) after exiting the container. -it  - to connect IO to the container immediately 
+
+exit  //exit the container
+
+docker ps -a  //to check for opened containers
+
+docker run -it --name for_work ubuntu:18.04  //make a container on Ubuntu image
+
+docker commit for_work for_work // to save chenges from container to image. Next time you run container with all the changes (installed programs will be there)
+
+docker images // to see images you have on your computer
+
+docker run --rm -it for_work // to run container with IO based on image 
+
+docker run -v C:\HDU\NETWORKS\2023\practice:/home/practice -p 8080:8080 --rm -it for_work  // to make a common folder when start a container
+
+hcpp-osx:~ hcpp$ docker ps // to see the id of a container
+
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS               NAMES
+1d6081fca9ce        np                  "/bin/bash"         About a minute ago   Up About a minute                       optimistic_hugle
+
+// to make one more cmd for the same container (to run a client, for example). Here 1d6081fca9ce is the container id you want to run in the new cmd window.
+hcpp-osx:~ hcpp$ docker exec -it 1d6081fca9ce bash
+
+clang -pthread server.c // to compile server
+clang client.c // to compile client
+
+
